@@ -1,0 +1,3 @@
+python -m pymunk.examples.planet
+python -m pymunk.examples.breakout
+python -m pymunk.examples.playground
