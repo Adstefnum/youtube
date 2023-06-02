@@ -1,13 +1,13 @@
-
+from manimlib.imports import *
 # A customizable Sequential Neural Network
 class NeuralNetworkMobject(VGroup):
     CONFIG = {
         "neuron_radius": 0.15,
         "neuron_to_neuron_buff": MED_SMALL_BUFF,
         "layer_to_layer_buff": LARGE_BUFF,
-        "output_neuron_color": WHITE,
-        "input_neuron_color": WHITE,
-        "hidden_layer_neuron_color": WHITE,
+        "output_neuron_color": GREEN,
+        "input_neuron_color": BLUE,
+        "hidden_layer_neuron_color": ORANGE,
         "neuron_stroke_width": 2,
         "neuron_fill_color": GREEN,
         "edge_color": LIGHT_GREY,
@@ -74,7 +74,7 @@ class NeuralNetworkMobject(VGroup):
         layer.add(neurons)
 
         if size > n_neurons:
-            dots = TexMobject("\\vdots")
+            dots = Text("\\vdots",font="Arial")
             dots.move_to(neurons)
             VGroup(*neurons[:len(neurons) // 2]).next_to(
                 dots, UP, MED_SMALL_BUFF
@@ -127,7 +127,7 @@ class NeuralNetworkMobject(VGroup):
     def label_inputs(self, l):
         self.output_labels = VGroup()
         for n, neuron in enumerate(self.layers[0].neurons):
-            label = TexMobject(f"{l}_"+"{"+f"{n + 1}"+"}")
+            label = Text(f"{l}"+"{"+f"{n + 1}"+"}",font="Arial")
             label.set_height(0.3 * neuron.get_height())
             label.move_to(neuron)
             self.output_labels.add(label)
@@ -137,7 +137,7 @@ class NeuralNetworkMobject(VGroup):
     def label_outputs(self, l):
         self.output_labels = VGroup()
         for n, neuron in enumerate(self.layers[-1].neurons):
-            label = TexMobject(f"{l}_"+"{"+f"{n + 1}"+"}")
+            label = Text(f"{l}"+"{"+f"{n + 1}"+"}",font="Arial")
             label.set_height(0.4 * neuron.get_height())
             label.move_to(neuron)
             self.output_labels.add(label)
@@ -147,7 +147,7 @@ class NeuralNetworkMobject(VGroup):
     def label_outputs_text(self, outputs):
         self.output_labels = VGroup()
         for n, neuron in enumerate(self.layers[-1].neurons):
-            label = TexMobject(outputs[n])
+            label = Text(outputs[n],font="Arial")
             label.set_height(0.75*neuron.get_height())
             label.move_to(neuron)
             label.shift((neuron.get_width() + label.get_width()/2)*RIGHT)
@@ -159,7 +159,7 @@ class NeuralNetworkMobject(VGroup):
         self.output_labels = VGroup()
         for layer in self.layers[1:-1]:
             for n, neuron in enumerate(layer.neurons):
-                label = TexMobject(f"{l}_{n + 1}")
+                label = Text(f"{l}{n + 1}",font="Arial")
                 label.set_height(0.4 * neuron.get_height())
                 label.move_to(neuron)
                 self.output_labels.add(label)
