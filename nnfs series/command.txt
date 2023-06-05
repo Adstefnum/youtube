@@ -1,0 +1,1 @@
+manim  ep2/1.py Net1 -pl -r 1080
