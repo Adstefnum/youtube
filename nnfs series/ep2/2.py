@@ -1,4 +1,4 @@
-from manim import *
+from manimlib.imports import *
 import os
 import sys
 
@@ -14,9 +14,10 @@ class Net2(Scene):
         net.label_inputs("x")
         net.label_outputs("y")
         net.label_hidden_layers("h")
+        net.label_inputs_text(["Temp", "Humidity", "Cloud"])
         net.label_outputs_text(["sunny", "snowy", "rainy"])
 
         net.scale(2)
-        self.play(Write(net), run_time=8)
+        self.play(Write(net), run_time=10)
 
 
