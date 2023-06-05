@@ -143,6 +143,17 @@ class NeuralNetworkMobject(VGroup):
             self.output_labels.add(label)
         self.add(self.output_labels)
 
+  # Labels each neuron in the input layer with text according to an input list
+    def label_inputs_text(self, inputs):
+        self.input_labels = VGroup()
+        for n, neuron in enumerate(self.layers[0].neurons):
+            label = Text(inputs[n],font="Arial")
+            label.set_height(0.75*neuron.get_height())
+            label.move_to(neuron)
+            label.shift((neuron.get_width() + label.get_width()/2)*LEFT)
+            self.input_labels.add(label)
+        self.add(self.input_labels)
+
     # Labels each neuron in the output layer with text according to an output list
     def label_outputs_text(self, outputs):
         self.output_labels = VGroup()
