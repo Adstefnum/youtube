@@ -1,9 +1,9 @@
-from manimlib.imports import *
+from manim import *
 import os
 import sys
 
 
-module_directory = os.path.abspath(os.path.dirname(__file__))
+module_directory = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(module_directory)
 
 from neural_network_manim import NeuralNetworkMobject
